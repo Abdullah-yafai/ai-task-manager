@@ -1,9 +1,9 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { User } from "../models/User.model.js";
+import { User } from "../models/user.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiError } from "../../../../../Backend/src/utils/ApiError.js";
-import { ApiResponse } from "../../../../../Backend/src/utils/ApiResponse.js";
+import { ApiError } from "../utils/apierror.js";
+import { ApiResponse } from "../utils/apiresponse.js";
 
 
 const Generatetokens = async (UserID) => {

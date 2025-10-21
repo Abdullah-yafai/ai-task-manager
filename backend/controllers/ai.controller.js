@@ -1,7 +1,7 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
+import { ApiResponse } from "../utils/apiresponse.js";
 import { openai } from "../server.js";
-import { Task } from "../models/Task.model.js";
+import { Task } from "../models/task.model.js";
 
 // // ✅ Correct OpenAI initialization
 // const openai = new OpenAI({
