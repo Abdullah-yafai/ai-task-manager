@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/user.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/apierror.js";
-import { ApiResponse } from "../utils/apiresponse.js";
+import { ApiResponse } from "../utils/apiResponse.js";
 
 
 const Generatetokens = async (UserID) => {
