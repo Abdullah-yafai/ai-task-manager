@@ -23,8 +23,9 @@ export const openai = new OpenAI({ apiKey, baseURL });
 const app = express();
 
 app.use(cors({
-  origin: process.env.ORIGIN,
-  credentials: true,
+  origin: ["https://ai-task-manager-beta.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
 }));
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
