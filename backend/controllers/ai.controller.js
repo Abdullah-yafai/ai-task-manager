@@ -1,5 +1,5 @@
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/apiresponse.js";
+import { ApiResponse } from "../utils/apiResponse.js";
 import { openai } from "../server.js";
 import { Task } from "../models/task.model.js";
 
