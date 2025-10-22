@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:3000/api";
+const API_BASE = process.env.REACT_APP_API_URL || "https://ai-task-manager-production-6654.up.railway.app/api";
 
 const instance = axios.create({
   baseURL: API_BASE,
