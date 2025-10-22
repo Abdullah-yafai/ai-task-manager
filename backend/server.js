@@ -22,12 +22,20 @@ export const openai = new OpenAI({ apiKey, baseURL });
 
 const app = express();
 
-app.use(cors({
-  origin: ["https://ai-task-manager-beta.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+
+app.use(
+  cors({
+    Origin: [
+      "http://localhost:3000", // local frontend
+      "https://ai-task-manager-beta.vercel.app", // vercel frontend
+    ],
     credentials: true,
-}));
-app.use(express.json({ limit: "10kb" }));
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders:  ["Content-Type", "Authorization"]
+  })
+);
+app.options("*", cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(express.static("public"));
 
