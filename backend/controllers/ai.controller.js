@@ -34,8 +34,8 @@ const generateAIPlan = asyncHandler(async (req, res) => {
   const aiResponse = completion.choices[0].message.content;
 
   const plan = await Task.create({
-    title: `AI Generated Plan: ${prompt.slice(0, 30)}...`,
-    description: "Auto-generated plan using AI",
+    title: `AI Generated Plan for: ${aiResponse.slice(36, 79)}...`,
+    description: aiResponse.slice(0, 79),
     user: req.user._id,
     generatedByAI: true,
     aiPlan: aiResponse, // 👈 new field for full text
