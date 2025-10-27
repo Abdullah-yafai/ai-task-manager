@@ -13,7 +13,7 @@ export default function AiPlanner() {
     setLoading(true);
     try {
       const res = await api.post("/ai/generate-plan", { goals: [goal], deadlines: [] });
-      console.log(res,'ai')
+      console.log(res, 'ai')
       toast.success(res.data?.message)
       setPlan(res.data?.data || "No plan");
     } catch (err) {
@@ -39,9 +39,9 @@ export default function AiPlanner() {
       </div>
 
       {plan && (
-        <div className="mt-6 glass p-4 rounded-lg whitespace-pre-wrap gradient-card">
+        <div className="glass mt-6 p-4 rounded-lg whitespace-pre-wrap break-words overflow-y-auto max-h-96">
           <h3 className="font-semibold mb-2 text-white">Generated Plan</h3>
-          <pre className="text-sm text-muted">{plan?.aiPlan}</pre>
+          <p className="text-sm text-muted">{plan?.aiPlan}</p>
         </div>
       )}
     </div>

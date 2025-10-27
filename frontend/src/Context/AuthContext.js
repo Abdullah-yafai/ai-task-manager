@@ -54,17 +54,11 @@ export function AuthProvider({ children }) {
     setLoadingAuth(true);
     try {
       const res = await api.post("/auth/register", { name, email, password });
-      const data = res.data?.data || res.data;
-      const { accessToken, user: newUser } = data;
-
-      if (!accessToken) throw new Error("No token returned");
-
-      localStorage.setItem("token", accessToken);
-      localStorage.setItem("user", JSON.stringify(newUser));
-      setUser(newUser);
-
-      toast.success("Account created successfully!");
-      return newUser;
+      console.log(res)
+      if(res.data.success){
+        toast.success("Account created successfully!");
+      }
+      return res.data
     } catch (err) {
       console.error(err);
       toast.error(err.response?.data?.message || "Registration failed");
