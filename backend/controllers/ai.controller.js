@@ -24,7 +24,7 @@ const generateAIPlan = asyncHandler(async (req, res) => {
 
   // ✅ Correct method (SDK v4 syntax)
   const completion = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: "openai/gpt-4o-mini",
     messages: [
       { role: "system", content: "You are a smart productivity assistant." },
       { role: "user", content: prompt },
