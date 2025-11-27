@@ -7,7 +7,7 @@ Modal.setAppElement("#root");
 export default function TaskModal({ isOpen, onClose, onSaved, initial }) {
   const [title, setTitle] = useState(initial?.title || "");
   const [description, setDescription] = useState(initial?.description || "");
-  const [dueDate, setDueDate] = useState(initial?.dueDate ? initial.dueDate.split("T")[0] : "");
+  const [dueDate, setDueDate] = useState(initial?.dueAt ? initial.dueAt.split("T")[0] : "");
   const [priority, setPriority] = useState(initial?.priority || "Medium");
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +20,7 @@ export default function TaskModal({ isOpen, onClose, onSaved, initial }) {
 
   const submit = () => {
     setLoading(true);
-    const payload = { title, description, dueDate, priority };
+    const payload = { title, description, dueAt:dueDate, priority };
     onSaved(payload).finally(() => setLoading(false));
   };
 

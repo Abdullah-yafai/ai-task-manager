@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { FaBell } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Topbar({ onGenerate }) {
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate()
   return (
     <div className="h-16 px-6 flex items-center justify-between glass">
       <div className="flex items-center gap-4">
@@ -11,7 +13,7 @@ export default function Topbar({ onGenerate }) {
         <div className="text-sm text-muted hidden md:block">Manage tasks & generate AI plans</div>
       </div>
       <div className="flex items-center gap-4">
-        <button onClick={onGenerate} className="btn-primary px-4 py-2 rounded-md shadow hover:opacity-95">
+        <button onClick={()=>navigate('/ai')} className="btn-primary px-4 py-2 rounded-md shadow hover:opacity-95">
           <span className="font-medium">Generate Smart Plan</span>
         </button>
         <button className="p-2 rounded-md hover:bg-white/5 text-white">

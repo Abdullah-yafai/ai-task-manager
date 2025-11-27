@@ -32,7 +32,7 @@ const app = express();
 // after deployment cors issue solution
 const allowedOrigins = [
   "https://ai-task-manager-beta.vercel.app",
-  "http://localhost:3001"
+  "http://localhost:3000"
 ];
 
 app.use((req, res, next) => {

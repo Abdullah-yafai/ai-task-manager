@@ -5,7 +5,7 @@ import { FaTasks, FaRobot, FaUser } from "react-icons/fa";
 const menu = [
   { id: "dashboard", label: "Tasks", icon: <FaTasks/>, to: "/" },
   { id: "ai", label: "AI Planner", icon: <FaRobot/>, to: "/ai" },
-  { id: "profile", label: "Profile", icon: <FaUser/>, to: "/profile" },
+  // { id: "profile", label: "Profile", icon: <FaUser/>, to: "/profile" },
 ];
 
 export default function Sidebar(){

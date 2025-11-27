@@ -1,7 +1,8 @@
 import { Dialog } from "@headlessui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit, FaCheckCircle } from "react-icons/fa";
+
 
 export default function TaskCard({ task, onEdit, onDelete, onToggle, setModalOpen }) {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,11 @@ export default function TaskCard({ task, onEdit, onDelete, onToggle, setModalOpe
         </div>
         <div className="text-right">
           <div className="text-xs text-muted">Due</div>
-          <div className="font-medium text-white" >{new Date(task.dueDate).toLocaleDateString()}</div>
+          <div className="font-medium text-white" >{new Date(task.dueAt).toLocaleDateString()}</div>
+
+          {task.completed && (
+            <FaCheckCircle className="text-green-500 text-lg float-right mt-2" title="Completed" />
+          )}
         </div>
       </div>
 
@@ -24,6 +29,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggle, setModalOpe
             {task.completed ? "Mark Incomplete" : "Mark Complete"}
           </button>
           <div className={`text-xs px-2 py-1 rounded-md text-white ${task.priority === "High" ? "bg-red-600/10" : task.priority === "Medium" ? "bg-yellow-500/10" : "bg-green-700"}`}>{task.priority}</div>
+
         </div>
 
         <div className="flex items-center gap-2">
